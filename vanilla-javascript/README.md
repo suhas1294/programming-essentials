@@ -716,7 +716,7 @@ console.log(foo())
         return recipe;
     }
     getRecipesAW().then(result => console.log(`${result} is the best ever!`));
-  ``
+  ```
 
 * Promise example:\
 [source](https://javascript.info/promise-basics)
