@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input placeholder="enter year" />
+    <button onclick="getMovieTitles()">Get Movie titles</button>
+    <div id="#root"></div>
+</body>
+
+</html>
+
+<script>
+    const getMovieTitles = (year=2015) => {
+        const filmedYear = document.querySelector('input').value || year;
+        const element = document.getElementById('#root');
+        fetch(`https://jsonmock.hackerrank.com/api/movies?Year=${filmedYear}`)
+            .then(response => response.json())
+            .then(jsonResp => {
+                movieTitles = jsonResp.data.map(movie => `<p>${movie.Title}</p>`)
+                return movieTitles;
+            })
+            .then(titles => {
+                let htmlContent = "";
+                titles.forEach(t => htmlContent += t);
+                return htmlContent;
+            })
+            .then(htmlContent => element.innerHTML = htmlContent)
+            .catch(err => console.error(err.message));
+
+    }
+</script>

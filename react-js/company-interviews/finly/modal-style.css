@@ -1,0 +1,23 @@
+.modal-content {
+    box-shadow: 3px 3px 8px grey;
+    z-index: 100;
+    max-height: 300px;
+    overflow-y: scroll;
+    max-width: 230px;
+    padding: 0.5rem;
+    position: relative;
+    left: 25%;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.no-display {
+    display: none;
+}
+
+.modalHeader {
+    display: flex;
+    justify-content: flex-end;
+}

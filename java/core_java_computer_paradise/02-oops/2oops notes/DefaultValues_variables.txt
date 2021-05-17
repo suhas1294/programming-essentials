@@ -1,0 +1,12 @@
+           Size             default_val
+byte       8bit/1byte		    0
+short       2byte				0
+int			4byte				0
+long		8byte				0
+
+float		4byte				0.0f
+double		8byte				0.0
+
+char		 2byte				'\u0000'
+string		 N/A			    null
+

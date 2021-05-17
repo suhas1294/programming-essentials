@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    span{
+        color: green;
+    }
+    p#root{
+        padding: 0.5rem;
+        box-shadow: 3px 3px 8px grey;
+        display: inline;
+    }
+</style>
+<body>
+    <p>23511011501782351112179911801562340161171141148</p></hr>
+    <p>84114117116104326510811997121115328710511011532</p></hr>
+    <p>&nbsp; twoplets : ["84", "11", "41", "17", "11", "61", "04", "32", "65", "10", "81", "19", "97", "12", "11", "15", "32", "87", "10", "51", "10", "11", "53", "2"]</p></hr>
+    <p>Expected : ["84", "114", "117", "116", "104", "32", "65", "108", "119", "97", "121", "115", "32", "87", "105", "110", "115", "32" ]</p></hr>
+    <p id='actual'></p>
+    <p id='root'></p>
+</body>
+</html>
+<script>
+    // step 1 : get input
+    const input = '23511011501782351112179911801562340161171141148';
+
+    // step 2 : reverse the input
+    let reversedInput = input.split('').reverse().join('');
+
+    // step 3: split the strings to chunk size of 2
+    let twoplets = reversedInput.match(/.{1,2}/g);
+    
+    let result = []; // where result array will be stored
+
+    let someFlag = false;
+
+    for (let index = 0; index < twoplets.length-1; index++) {
+        const intElement = parseInt(twoplets[index]);
+        
+        let betweenAtoZ = intElement >= 65 && intElement <=90;
+        let between_atoz = intElement >= 97 && intElement <=122;
+        let isSpace = intElement === 32;
+        
+        if (( (betweenAtoZ) || (between_atoz) || (isSpace) ) && !someFlag){
+            result.push(intElement);
+            someFlag = false;
+        }else if(!someFlag) {
+            let trippleNumber = intElement.toString() + twoplets[index+1][0];
+            result.push(trippleNumber);
+            someFlag = true;
+        }else if(someFlag){
+            let newNum = intElement.toString()[1] + twoplets[index+1];
+            result.push(newNum);
+            index += 1;
+            someFlag = false;
+        }   
+    }
+    let actualHtml = `&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Actual: [${result.map(el => '\"'+ el.toString() + '\"' ).join(", ") } ] &nbsp;&nbsp;// after computation`;
+    document.getElementById('actual').innerHTML = actualHtml;
+    document.getElementById('root').innerHTML = `<span>Result:</span> ${String.fromCharCode(...result)}`;
+</script>

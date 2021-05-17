@@ -1,0 +1,7 @@
+https://dataschool.com/how-to-teach-people-sql/inner-join-animated/
+
+https://www.percona.com/blog/2008/04/09/how-fast-can-mysql-process-data/
+
+https://stackoverflow.com/questions/1276/how-big-can-a-mysql-database-get-before-performance-starts-to-degrade
+
+https://stackoverflow.com/questions/9702643/mysql-vs-mongodb-1000-reads

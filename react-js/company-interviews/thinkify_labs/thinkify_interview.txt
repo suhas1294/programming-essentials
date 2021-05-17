@@ -1,0 +1,66 @@
+function closureExample(age){
+  let someString = "kjsdfbj";
+  return function(){
+    console.log(`${someString}, age: ${age}`);
+  }
+}
+
+let returnedFunction = closureExample(29);
+returnedFunction();
+
+class CustomError extends Error{
+  constructor(){
+    super();
+    return("bad response");
+  }
+
+}
+
+function something(closureFunc){
+    if (Math.random() < 0.5) {
+      return new CustomError("bad response");
+    }else{
+        console.log("closure function received as callback");
+        closureFunc();
+    }
+
+}
+
+
+try{
+    something(closureExample);
+}catch(error){
+  console.error("Error happened while executing closure, logs:", error);
+}
+
+______________________________
+
+class Gender{
+    constructor(name){
+        this.name = name;
+    }
+
+}
+
+class Male extends Gender{
+    constructor(name, type){
+        super(name);
+        this.type = type;
+    }
+}
+
+class Boy extends Male{
+    constructor(name, type, lang){
+        super(name, type);
+        this.lang = lang;
+    }
+    getIno(){
+        console.log(`name: ${this.name}, type: ${this.type}, language: ${this.lang}`);
+    }
+}
+
+let boy = new Boy("John", "student", "js");
+
+boy.getIno()
+
+______________________________

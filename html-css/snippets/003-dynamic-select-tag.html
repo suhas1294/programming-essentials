@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input id="custom1" onchange="blurAfter5()" placeholder="custom1" />
+    <br>
+    <input id="custom2" placeholder="custom2" />
+    <br>
+    <a href="https://example.com" target="_blank">New Page</a>
+    <br>
+    
+    <!-- select tag main -->
+    <label for="cars">Choose a car:</label>
+    <select name="cars" id="cars" onchange="changeOtherOptions(this)" >
+        <option value="volvo">Volvo</option>
+        <option value="saab">Saab</option>
+        <option value="mercedes">Mercedes</option>
+        <option value="audi">Audi</option>
+    </select>
+
+
+</body>
+</html>
+
+<script>
+    let currentClickCount = 0;
+
+    const blurAfter5 = (event) => {
+        if (event.target.value.length > 5)
+            event.target.blur();
+    }
+
+    const cars =  {
+        volvo: ['volvo_option_1','volvo_option_2','volvo_option_3'],
+        saab: ['saab_option_1','saab_option_2','saab_option_3'],
+        mercedes: ['mercedes_option_1','mercedes_option_2','mercedes_option_3'],
+        audi: ['audi_option_1','audi_option_2','audi_option_3']
+    }
+
+    const changeOtherOptions = (event) => {
+        let selectedValue = event.value;
+        let optionUi = '';
+        cars[selectedValue].forEach(element => {
+            optionUi += `<option value="${element}">${element.toUpperCase()}</option>\n`;
+        });
+        let htmlUI = `
+            <select name="cars_options" id="cars_options"" >
+                ${optionUi}
+            </select>
+        `;
+        let oldSubDropdown = document.getElementById('cars_options');
+        oldSubDropdown ? oldSubDropdown.style.display = 'none' : null;
+        document.querySelector('#cars').insertAdjacentHTML('afterend', htmlUI);
+    }
+
+    window.onload = () => {
+        document.querySelector('body').addEventListener('click', () => {
+            console.log(`currentClickCount: ${currentClickCount}`);
+            currentClickCount++;
+        });
+    }
+
+    let element = document.getElementById('custom2').addEventListener('input', (event) => blurAfter5(event));
+</script>

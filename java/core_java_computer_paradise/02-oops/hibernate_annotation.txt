@@ -1,0 +1,13 @@
+@Entity
+@Table
+@ID
+@Column
+
+@Embedded
+@Embeddable 
+
+
+@ElementCollection
+@JoinTable(name = "user_vehicle",
+joinColumns = @JoinColumn(name="USER_ID"), 
+inverseJoinColumns = @JoinColumn(name = "VEHICLE_ID")

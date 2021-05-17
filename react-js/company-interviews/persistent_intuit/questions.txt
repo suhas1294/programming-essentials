@@ -1,0 +1,91 @@
+how would you rate yourself out of 5 in html5, css3, js, react
+
+what are the new features in html5
+
+what is html semantics ?
+
+difference between div and span - difference b/w block element and inline element
+
+difference between synchrounous and asynchrounous tasks
+
+what is box sizing-border-box ? does it work only on padding or on margin also ?
+
+difference between functional component and class component ?
+
+explaion all life cycles of class based components
+
+diff b/w stateful components vs stateless component ?
+
+what state management have you used in react ? any middleware u have used ? explain redux ?
+
+Q : write function to get union and difference of arrays:
+
+let a = [1,3,4];
+let b = [1,2,3];
+
+let union = a.filter(e => b.includes(e));
+
+let diff1 = a.filter(e => !b.includes(e));
+let diff2 = b.filter(e => !a.includes(e));
+
+console.log([...diff1, ...diff2]);
+console.log(union);
+
+___________________________
+
+Q : what will be order of output of this function:
+
+(function() {
+
+console.log('this is the start');
+
+setTimeout(function cb() {
+    console.log('Callback 1: this is a msg from call back');
+});
+
+console.log('this is just a message');
+
+setTimeout(function cb1() {
+    console.log('Callback 2: this is a msg from call back');
+}, 0);
+
+console.log('this is the end');
+
+})();
+
+Answer:
+// this is the start
+// this is just a message
+// this is the end
+// Callback 1: this is a msg from call back
+// Callback 2: this is a msg from call back
+
+___________________________
+
+Q :  How will you do validation in react ? criteria: input field should not be null && field input should be string and input should be minimum 3 chars in length:
+
+Answer:
+
+// import 'React' from 'react
+
+class Validation extends Component{
+    state = {
+        submitDisable: true,
+        someKey: "test"
+    }
+
+    validateField(e) {
+        if (e.target.value && e.target.value.length > 3 && (e.target.value instanceof string)){
+            this.setState({submitDisable: false});
+        }
+    }
+
+    render(){
+        return(
+            <div>
+                <input type="text" onClick={(event) => this.validateField(event)} />
+                <input type="submit" id="submit" disabled={this.state.submitDisable} />
+            </div>
+        );
+    }
+}

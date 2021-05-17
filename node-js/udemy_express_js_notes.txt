@@ -1,0 +1,268 @@
+npm install --save express
+
+//app.js
+const express = require('express');
+
+const app = express();
+
+const server = http.createServer(app);
+
+
+Middleware:
+    Incoming requests are automatically funneled through a bunch of functions by express JS.
+
+app.use() // use allows us to use other middleware function. accepts array of request handlers.
+app.use( (req, res, next) = {
+    // this func will be executed for every incoming request
+} );
+
+// next is a function passed by express JS
+// next has to be executed to allow the request to travel on to next middleware
+
+
+app.use( (req, res, next) = {
+    console.log('in first middleware');
+} );
+
+// this does not gets execured
+app.use( (req, res, next) = {
+    console.log('in another middleware');
+} );
+---------------------
+app.use( (req, res, next) = {
+    console.log('in first middleware');
+    next()
+} );
+
+// now this gets executed
+app.use( (req, res, next) = {
+    console.log('in another middleware');
+} );
+---------------------
+If we dont call 'next', we should call response
+
+app.use( (req, res, next) = {
+    console.log('in another middleware');
+    res.send('<h1>Hello</h1>');
+} );
+---------------------
+
+//summary program:
+
+const http = require('http');
+const express = require('express');
+const app = express();
+
+app.use( (req, res, next) = {
+    console.log('in first middleware');
+    next()
+} );
+app.use( (req, res, next) = {
+    console.log('in another middleware');
+    res.send('<h1>Hello</h1>');
+} );
+const server = http.createServer(app);
+server.listen(3000);
+---------------------
+const express = require('express');
+const app = express();
+
+app.use( (req, res, next) = {
+    console.log('in first middleware');
+    next()
+} );
+app.use( (req, res, next) = {
+    console.log('in another middleware');
+    res.send('<h1>Hello</h1>');
+} );
+
+app.listen(3000);
+---------------------
+
+____________________________________________________________
+ROUTING
+____________________________________________________________
+// use has 5 types of overloads
+
+const express = require('express');
+const app = express();
+
+app.use( '/books', (req, res, next) = {
+    res.send('<h1>Books page</h1>');
+} );
+app.use( '/users', (req, res, next) = {
+    res.send('<h1>User page</h1>');
+} );
+
+app.listen(3000);
+____________________________________________________________
+boilerplate code / starter kit
+____________________________________________________________
+
+npm init
+npm install --save-dev nodemon
+npm install --save express body-parser
+
+//package.json : add start script:
+"start": "nodemon main.js"
+
+____________________________________________________________
+PARSING INCOMING REQUESTS
+____________________________________________________________
+const express = require('express');
+const bodyParser = require('body-parser');
+
+const app = express();
+app.use(bodyParser.urlEncoded({extended: false})); // this will call 'next' automatically
+app.use( '/books', (req, res, next) = {
+    res.send('<h1>Books page</h1>');
+} );
+app.get( '/users', (req, res, next) = {
+    console.log(req.body);
+    res.redirect('/');
+} );
+
+app.post( '/users', (req, res, next) = {
+    console.log(req.body);
+    res.redirect('/');
+} );
+app.listen(3000);
+
+____________________________________________________________
+Routing by modules:
+____________________________________________________________
+
+// routes/admin.js
+const express = require('express');
+const router = require('Router');
+
+router.get( '/add-product', (req, res, next) = {
+    res.send('<form>add product form</form>');
+    res.redirect('/');
+} );
+
+router.post( '/product', (req, res, next) = {
+    res.redirect('/');
+} );
+modules.exports = router;
+---------------------
+// routes/shop.js
+const express = require('express');
+const router = require('Router');
+
+router.get( '/product', (req, res, next) = {
+    res.send('<h1>Product list page</h1>');
+});
+
+// IMPORTANT get handles exact path unlike 'use'
+router.get( '/', (req, res, next) = {
+    res.send('<h1>Root page</h1>');
+});
+modules.exports = router;
+---------------------
+// main.js
+
+const express = require('express');
+const bodyParser = require('body-parser');
+const adminRoutes = require('./routes/admin');
+const shopRoutes = require('./routes/shop');
+
+app.use(bodyParser.urlEncoded({extended: false}));
+app.use(adminRoutes);
+app.use(shopRoutes);
+app.use((req, res, next) = {
+    res.status(404).send('<h1>404 Not found</h1>');
+});
+
+app.listen(3000);
+____________________________________________________________
+Filtering routes:
+____________________________________________________________
+
+// main.js
+app.use('/admin', adminRoutes); // those routes starting with '/admin' should go to admin routes.
+app.use('/shop', shopRoutes);
+____________________________________________________________
+RENDERING HTML
+____________________________________________________________
+// routes/shop.js
+const path = require('path');
+router.get( '/', (req, res, next) = {
+    res.sendFile(path.join(__dirname, '..', 'views', 'shop.html'));
+});
+---------------------
+// cleaner way:
+//utils/path.js
+const path = require('path');
+modules.export = path.dirname(process.mainModule.filename);
+
+// routes/shop.js
+const rootDir = require('../utils/path');
+
+router.get( '/', (req, res, next) = {
+    res.sendFile(path.join(rootDir, 'views', 'shop.html'));
+});
+____________________________________________________________
+SERVING STATIC FILES
+____________________________________________________________
+// main.js
+const app = express();
+app.use(bodyParser.urlEncoded({extended: false}));
+app.use(express.static(path.join(__dirname, 'public'))); // read access
+
+// views/shop.html
+<link rel="stylesheet" href="/css/main.css" >
+
+
+____________________________________________________________
+ACCESSING DYNAMIC ID FROM URL
+____________________________________________________________
+// routes/shop.js
+router.get('/products/:productId', shopController.getProduct);
+
+// shop controller
+exports.getProduct = (req, res, next) => {
+    const prodId = req.params.productId;
+    // accessing query params:
+    const queryParams = req.query.keyName
+}
+
+
+____________________________________________________________
+DATABASE SCALING
+____________________________________________________________
+
+horizontal scaling:
+    add more servers and merge into one database
+vertical scaling:
+    increasing hardware capacity
+
+____________________________________________________________
+PROJECT SUMMARY AND FLOW
+____________________________________________________________
+
+App.js -> routes ->  controllers  -> models
+
+App.js structure
+    built in
+    3rd party
+    custom
+
+    express()
+    view engine
+    middleware
+    pre-routing use()
+    routes
+    db connection + listen
+
+routes
+
+
+
+____________________________________________________________
+Cookies and Sessions
+____________________________________________________________
+
+When to use cookies:
+    1. Dont use it for storing sensitive data
+    2. tracking users

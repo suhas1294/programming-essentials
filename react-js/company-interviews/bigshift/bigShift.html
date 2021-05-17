@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bigshift</title>
+</head>
+<body>
+    <div id="root"></div>
+</body>
+</html>
+
+<script>
+    let resultDiv = document.getElementById('root');
+    // logic start
+    let result = 153.
+    // logic end
+
+    let result = arr.map(e => {
+		console.log('value of e =',e);
+		let individualNumbers = e.toString().split("");
+		let sum = individualNumbers.map(i => {
+			let numberI = parseInt(i);
+			return numberI * numberI * numberI;
+		});
+		sum.join("");
+		if(sum == e){
+			return "It is an ARMSTRONG number";
+		}else{
+			return "It is NOT an ARMSTRONG number";
+		}
+	});
+    resultDiv.innerText = result;
+</script>
+
+
+let result = arr.map(e => {
+		console.log('value of e =',e);
+		let individualNumbers = e.toString().split("");
+		let sum = individualNumbers.map(i => {
+			let numberI = parseInt(i);
+			return numberI * numberI * numberI;
+		});
+		sum.join("");
+		if(sum == e){
+			return "It is an ARMSTRONG number";
+		}else{
+			return "It is NOT an ARMSTRONG number";
+		}
+	});

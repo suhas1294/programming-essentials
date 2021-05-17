@@ -1,0 +1,8 @@
+c/C-Programs-Basic/.gitignore
+java/split-bill/.gitignore
+java/topic-wise-programs/.gitignore
+node-js/linked-list-TDD/.gitignore
+node-js/meesho-hackerrank-interview/01-meesho-hackerrank/.gitignore
+node-js/meesho-hackerrank-interview/02-optimisations/.gitignore
+node-js/meesho-hackerrank-interview/.gitignore
+.DS_Store

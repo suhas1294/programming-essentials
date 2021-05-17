@@ -1,0 +1,8 @@
+Thread          					Runnable
+
+class           					Interface
+extend		     					implement
+Converted as Thread					Remain's as class
+Inheritance is not allowed			supports inheritance
+Memory created to every thread		Same memory is div to all thread
+No restriction for overloading		we must and should define the Run()

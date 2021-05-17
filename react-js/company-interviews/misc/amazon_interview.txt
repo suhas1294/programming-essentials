@@ -1,0 +1,58 @@
+1. div vs span - inline and inline-block.
+2. what is transfor property, how can we use it to center an element ?
+3. bind call apply
+4. event loops
+5. event bubbling
+
+6. specificity - improvement
+7. what will happen if i write class twice for an element ? will css specificity score increases ?
+
+8. How to improve performance of an application ?
+    during coding time
+        - picture tag - svg instead of png
+        - v8 engine - use 'const' more, use less 'let'
+        - not too many dom manipulations
+    during architecture time
+        - minification/chunkification
+        - user service worker
+        - server side rendering
+    during deployment time
+        - increase capacity of server (hardware)
+        - tell other servers to serve static files - cdn - 10x faster
+        - cache frequently fetched data.
+
+9. write polifil for bind, apply and promise.
+
+10. write a react/vanilla js Chat app
+11. write Dave game in vanilla javascript
+12. what is event loop
+13. what is Hoisting
+14. write a debouncing function
+15. what is Currying
+16. how interaction across components react happen ?
+17. explain Event bubbling
+18. How will you increase security of an application
+19. what is object freeze in vanilla js ?
+20. what is closure
+21. write algo for bruteforce
+22. system design
+
+23. where have you used bind in actual react project, write polyfil for the same.
+
+24. how do u improve seo ?
+    1. set specific keywords in meta tag
+    2. when to use different tags, ex: where to use h1 tag, footer should have lot of information.
+    3. use http2 instead of http1 (mention 1)
+    4. use amp site (accelarated mobile pages)
+
+26. css order and specificity
+  https://specificity.keegan.st/
+
+  google for 'css specificity calculator'
+
+  id:						100
+  class:					10
+  elements				1
+  attribute selectors 	10
+  pseudo classes		 	10
+  pseudo elements		 	10

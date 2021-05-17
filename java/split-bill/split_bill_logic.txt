@@ -1,0 +1,48 @@
+Event-1:
+Person Amt Spent how_much_do_i_owe
+------ --------- -----------------
+A       400			200
+B      1000			-400
+C       100			500
+D.      900			-300
+
+Total  2400, 600 per head
+how_much_do_i_owe = total_amt_of_event - amt_spent_by_person
+if how_much_do_i_owe is negative, then that person needs to receive that much amount.
+
+e1 = {
+  "a": 200,
+  "b": -400,
+  "c": 500,
+  "d": -300
+}
+
+_________________________
+Event-2:
+
+Person Amt Spent how_much_do_i_owe
+------ --------- -----------------
+A      1100			-400
+B       700			0
+C       400			300
+D.      600			100
+
+Total  2800, 700 per head
+
+e2 = {
+  "a": -400,
+  "b": 0,
+  "c": 300,
+  "d": 100
+}
+_________________________
+
+(e3 = e1 + e2) = {
+	"a": -200,
+	"b": -400,
+	"c": 800,
+	"d": -200
+}
+
+e3 will be used to settle down.
+_________________________

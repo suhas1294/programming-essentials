@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    #container {
+        min-width: 70%;
+        padding: 1%;
+        margin: 1%;
+        box-sizing: border-box;
+        box-shadow: 3px 3px 6px grey;
+    }
+    input {
+        padding: 1%;
+        font-size: 1.2rem;
+        margin: 1% 2%;
+        border-radius: 5px;
+    }
+    .error {
+        border: 2px solid red;
+    }
+</style>
+
+<body>
+    <div id="container">
+        <div class="single-row">
+            <input type="number" class="min-item" onfocusout="minValidate(event)" placeholder="Min no of Items" />
+            <input type="number" class="max-item" onfocusout="maxValidate(event)" placeholder="Max no of Items" />
+            <input type="number" class="item-price" onfocusout="priceValidate(event)" placeholder="Price" />
+        </div>
+        <div class="single-row">
+            <input type="number" class="min-item" onfocusout="minValidate(event)" placeholder="Min no of Items" />
+            <input type="number" class="max-item" onfocusout="maxValidate(event)" placeholder="Max no of Items" />
+            <input type="number" class="item-price" onfocusout="priceValidate(event)" placeholder="Price" />
+        </div>
+        <div class="single-row">
+            <input type="number" class="min-item" onfocusout="minValidate(event)" placeholder="Min no of Items" />
+            <input type="number" class="max-item" onfocusout="maxValidate(event)" placeholder="Max no of Items" />
+            <input type="number" class="item-price" onfocusout="priceValidate(event)" placeholder="Price" />
+        </div>
+        <div class="single-row">
+            <input type="number" class="min-item" onfocusout="minValidate(event)" placeholder="Min no of Items" />
+            <input type="number" class="max-item" onfocusout="maxValidate(event)" placeholder="Max no of Items" />
+            <input type="number" class="item-price" onfocusout="priceValidate(event)" placeholder="Price" />
+        </div>
+    </div>
+</body>
+
+</html>
+
+<script>
+    function maxValidate(event) {
+        let currentMaxValue = event.target.value;
+        currentMinValue = event.target.previousElementSibling.value;
+        let currentMaxValueInt = parseInt(currentMaxValue);
+        let currentMinValueInt = isNaN(parseInt(currentMinValue)) ? 0 : parseInt(currentMinValue);
+        currentMaxValueInt < currentMinValueInt ? event.target.classList.add('error') : event.target.classList.remove('error');
+        validateRow(event);
+    }
+    function minValidate(event) {
+        let currentMinValue = event.target.value;
+        let prevInputRow = event.target.parentElement.previousElementSibling;
+        let prevInputRowMaxValue = prevInputRow ? prevInputRow.children[1].value : 0;
+        // debugger
+        if (parseInt(prevInputRowMaxValue) > parseInt(event.target.value)) {
+            event.target.classList.add('error');
+        } else {
+            event.target.classList.remove('error');
+        }
+        validateRow(event);
+    }
+    function priceValidate(event) {
+        let currentPrice = event.target.value;
+        let prevPrice = event.target.parentElement.previousElementSibling;
+        let prePriceValue = prevPrice ? prevPrice.children[2].value : 0;
+        if (parseInt(prePriceValue) > parseInt(event.target.value)) {
+            // debugger
+            event.target.classList.add('error');
+        } else {
+            event.target.classList.remove('error');
+        }
+        validateRow(event);
+    }
+    function validateRow(event) {
+        let allImmediateSibilings = event.target.parentNode.children;
+        for (const node in allImmediateSibilings) {
+            if (allImmediateSibilings[node] && allImmediateSibilings[node].classList && allImmediateSibilings[node].classList.contains('error')) {
+                let inputList = getFutureRows(event);
+                inputList.forEach(inputField => inputField.disabled = true);
+                break;
+            }else{
+                let inputList = getFutureRows(event);
+                inputList.forEach(inputField => inputField.disabled = false);
+            }
+        }
+    }
+    function getFutureRows(event){
+        let allRows = event.target.parentElement.parentElement.children;
+        let errRowNo = null;
+        for (const key in allRows) {
+            if (allRows[key] == event.target.parentElement) {
+                errRowNo = key;
+                let toBeDisabledRows = Object.values(allRows).slice(parseInt(errRowNo) + 1, allRows[allRows.length]);
+                let inputList = [];
+                toBeDisabledRows.forEach(row => {
+                    Object.values(row.children).forEach(inputField => {
+                        inputList.push(inputField);
+                    });
+                });
+                return inputList;
+            }
+        }
+    }
+</script>

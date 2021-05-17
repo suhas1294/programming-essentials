@@ -1,0 +1,189 @@
+write a webapp
+How to build a system that uploads file as chunks? 
+
+1st round - questions regarding to OS, https request/response, nodejs architecture.
+2nd round - questions on datastructure
+3rd round - Design a system like google docs.
+4th round - Design instagram feeds system.
+5th round - project based discussion
+6th round - hiring manager round
+7th round - HR  
+
+First round was JS round followed by a machine coding round. After that there was one System design round and one round on UI performance.
+How would you improve the client side performance of a web app.
+
+OOP, Databases and Networks
+designing database for existing well known services like facebook.
+system design. 
+Normal forms, Static methods, network protocols in each layer.  
+
+Explain cache in OS, OSI model in CN, tries in DS.
+Explain project in detail and then discussion around the project, how to improve certain functionalities.
+Explain about requests and responses, http request methods, APIs.  
+
+like DNS resolutions, Reverse Proxy, API Gateway
+How Dns Resolutons works?
+What is reverse proxy?  
+
+one was on dp and another on segment tree.
+sharding
+Questions around databases, read-write replicas, sharding.  
+
+jsnode
+
+What do you understand by breakpoint?  
+Types of task scheduling in os  
+
+creating a backend web server with 3 API's, connecting to DB and explaining the approach for API's  
+One coding round - Build a library
+
+________________________________________________________________________
+Find a duplicate in Array:
+-- For unsorted: explained using set
+-- For sorted: Explained using Total sum
+-- For O(1) space: explained using Bloom Filter  
+
+How encryption works in HTTPS? Interviewer not aware of CyperSuite concepts and just focuses on initial asymmetric key sharing phase. As expected from young people asking questions, since cypersuite was never explained in College i guess.
+
+What is ACID?  
+API design for displaying user activities
+-- Used Nest.js to design MVC.
+-- Simple Heartbeat solution to update timestamps over WebScoket and to retrive latest online user and plot history of user activity over RDB.
+-- Suggested to use Key value store like Redis to improve latency.
+-- Finally a single good question worth of interview:
+---- Discussed about scaling by using consistent hashing over document_id to distribute load over multiple datastore and use LB over containers  
+________________________________________________________________________
+
+
+1. Coding Round - 3 Coding questions (2 mainstream + 1 file handling)
+2. Technical Interview 1 - Projects, System Design Basics (DBs, Indexing, ACID, https, encryption, event loop, etc)
+
+3. Technical Interview 2 - Projects, In-depth questions related to tech stack that you've mentioned in the resume, topics were similar to first round but questions were more architecture oriented.
+
+4. Hiring Manager Round - In depth discussion of the projects that I worked on, rigorous face to face profiling, a couple of hr questions, and culture/vision evaluation.
+
+________________________________________________________________________
+
+What is temporal dead zone?  
+How will you Design Google Docs  
+How to React Virtual DOM works  
+Can you Copy an object with object.assign  
+________________________________________________________________________
+
+data structure used to check/verify html code  
+Asked to implement a basic api on orders.  
+
+
+Maximise the buying of goodies by selling the cartridge of printer and using money to buy the goodies  
+
+DBMS, OS, CN, Dns Resolution, React pros & cons, System design basiscs, Performance optimisation
+
+Write full working production code of LRU cache.  
+1. How does web know what type of response (image, file, json) is returned by server
+2. Pros/Cons of mongo vs mysql
+________________________________________________________________________
+
+How would you reorder an item in a very large list?  
+
+TCP, UDP
+2 HTTP, HTTPS
+3 Different type of request
+4 SSL Layer, etc  
+________________________________________________________________________
+
+Q1. Use any stack to create a service which can detect who is online currently  
+system design question for how google doc works?
+
+React JS:
+1. Why it is better?
+2. How it is so fast?
+
+Then one system design question of type ahead suggestion  
+
+How would you improve the client side performance of a web app.  
+
+how to design the Login/register system
+password management like how you store and validate passwords, what is salt, how will you achieve security.  
+________________________________________________________________________
+
+1. When did you first use Postman and what for?  
+2. Different types of directives and bindings in Angular.  
+3. What is Nodejs? How is it different from other backend technologies?  
+4. How did you implement the login/signup feature in your project?  
+5. Describe the database schema of one of your projects?  
+6. What is indexing? When should we not use indexing?  
+7. Difference between encryption and hashing. What is used in real-life projects for saving passwords etc?  
+8. What happens when you search for something in the browser?  
+9. Difference between position: absolute, relative and fixed.  
+10. Difference between position: top and margin-top.  
+________________________________________________________________________
+
+Coding questions - Segment Trees, Digit DP, Hash Map  
+
+One question was based on segment tree, which I did successfully scoring 100/100. Second question was hard and it was from topic "Digit DP" (100). Third question was really easy and could be solved using a hash map. (20)
+
+I was confident enough that I'll get call from Postman recruiter but got a rejection email instead on next day. I solved all the questions except the "Digit DP" question.
+
+I would suggest the company to start asking such difficult questions. Even the segment trees question was not medium level. The company heavily focuses on open source development. There should be an option for candidates to opt either for OA or "Take-Home Assignment".
+________________________________________________________________________
+
+1. What is an event loop?
+2. Scaling websockets?
+3. How TCP connection is established?
+4. How https work?
+5. How html, css & js is rendered on a browser?
+6. What is two way binding in angular?
+7. How will you create a module for sending request/response?  
+________________________________________________________________________
+
+Basic JS questions like callbacks,promises etc.  
+________________________________________________________________________
+
+
+Explain inheritance in JS  
+What are closures in JS?  
+CSS rules nesting and precedence  
+DOM and its details  
+________________________________________________________________________
+
+What is indexing  
+What is asynchronous programming  
+What happens when you request a webpage  
+Explain 3 way handshake  
+How is mongodb's _id generated  
+Explain flow of data flow inside hapi.js web framework.  
+________________________________________________________________________
+
+What are classes in Javascript?  
+What happens when you type google.com into the address bar? 
+
+Current projects and challenges faced in it, also how I was able to solve it  
+Design question about implementing feature similar to finding top professionals with a particular skill on linkedln.  
+Given 3 hours, code in node.js for a system like calendy with basic auth/session maintenance, blocking free slots on a calender and much more.  
+
+________________________________________________________________________
+
+How could you've improved your project?  
+Why does indexing in an array start with 0?  
+What is the difference between "\n" and "endl" in C++?  
+What is the difference between cache and buffer?  
+What is the need for a CPU buffer?  
+Why can't the CPU interact directly with secondary memory?  
+How can you convert an integer into a string in JavaScript and vice versa?  
+Can an undefined variable be used on toString method in JS and if yes, what would be the result?  
+What is polymorphism? Give an example.  
+What is a callback function?  
+Given an array consisting of non-negative integers. Count the number of odd-sum subarrays in the array.  
+
+________________________________________________________________________
+
+What projects are you working on?  
+How do you share location data?  
+What would you prefer http or websocket?  
+What are you comfortable with http or websocket?  
+How does internet work?  
+Will http work if we remove tcp?  
+Do you know event loop?  
+Is there a limit to the number of callbacks?  
+
+________________________________________________________________________

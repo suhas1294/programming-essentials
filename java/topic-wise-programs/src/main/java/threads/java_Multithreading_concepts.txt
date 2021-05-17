@@ -1,0 +1,46 @@
+concepts covered:
+
+thread cycle (what are method used, which class belongs to)
+joining the thread
+piorotizing
+yield
+notify
+wait
+
+synchonization (what obj gets locked)
+----------------------------------
+
+
+Multithreading
+
+Multiple tasks in same time
+Async tasks
+render servlets in webapplication
+
+Thread t1 = new Thread();
+
+this thread t1 does not what to do, so create a class in which specify what you want which has a method public void run().
+EVERY thread needs a method called run.
+
+class MyThread extends Thread{}
+Thread t1 = new MyThread();
+t1.run();
+
+But for parallel execution you need to call start() which will automatically create parallel thread and call run().
+
+One more way of creating thread is to implement Runnable interface.
+
+when u implement interface, make sure to create thread object and pass runnable object as argument to thread
+Thread t = new Thread(Runnable obj);
+
+.join methods waits for two threads to get over and join back the main thread.
+
+we can get and set name for a thread
+we can get and set priority for a thread, 1 being lowest and 10 being highest
+
+If two threads are making use of same method, and if the method is NOT 'synchronised' then method is not thread safe
+
+When 'wait()' is used, compulsorily use 'synchronize' with method.
+
+wait() belongs to object class and sleep() belongs to Thread class.
+wait() and noitfy() needs some object to work on.

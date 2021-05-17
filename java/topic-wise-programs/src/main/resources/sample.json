@@ -1,0 +1,53 @@
+{
+  "result": "successful",
+  "detail": [
+    {
+      "creation_time": 1546426919069,
+      "user_id": "93e9cc80-689c-11e8-9a92-1c1b0d767b46",
+      "name": "sdfsdf",
+      "modified_by": "93e9cc80-689c-11e8-9a92-1c1b0d767b46",
+      "flow_ids": [
+        "fe53e9e0-79d4-11e8-9bb4-7071bc63b33d"
+      ],
+      "segment_id": "d351b900-0e7d-11e9-86b0-7071bc63b33d",
+      "conditions": [],
+      "modification_time": 1546426919069,
+      "enabled": true
+    },
+    {
+      "creation_time": 1546426476681,
+      "tag_ids": [],
+      "user_id": "93e9cc80-689c-11e8-9a92-1c1b0d767b46",
+      "name": "48c48940-4de1-48e0-a8dd-ceee2596959d",
+      "modified_by": "93e9cc80-689c-11e8-9a92-1c1b0d767b46",
+      "flow_ids": [
+        "cb27fd80-0e7c-11e9-86b0-7071bc63b33d",
+        "cb44fb60-0e7c-11e9-86b0-7071bc63b33d",
+        "cb566080-0e7c-11e9-86b0-7071bc63b33d",
+        "cb641c20-0e7c-11e9-86b0-7071bc63b33d"
+      ],
+      "segment_id": "cba3e440-0e7c-11e9-86b0-7071bc63b33d",
+      "conditions": [],
+      "modification_time": 1546426476681,
+      "enabled": true,
+      "order": []
+    },
+    {
+      "creation_time": 1535367624028,
+      "tag_ids": [],
+      "user_id": "2d0f9b90-3ca8-11e8-9b82-7071bc63b33d",
+      "name": "Automated tasklist",
+      "modified_by": "2d0f9b90-3ca8-11e8-9b82-7071bc63b33d",
+      "flow_ids": [
+        "46878230-793a-11e8-bffe-7071bc63b33d",
+        "f8962590-7934-11e8-bffe-7071bc63b33d",
+        "bb4802d0-79cf-11e8-9bb4-7071bc63b33d"
+      ],
+      "segment_id": "65c9f040-a9e8-11e8-a322-1c1b0d767b46",
+      "conditions": [],
+      "modification_time": 1535367624028,
+      "enabled": false,
+      "order": []
+    }
+  ]
+}

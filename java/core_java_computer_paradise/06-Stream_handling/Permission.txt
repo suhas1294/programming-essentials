@@ -1,0 +1,7 @@
+TO do file operation we have to change the permission inside JRE
+
+C:/Program files/java/jdk/jre/lib/security/
+
+edit java.policy
+
+change the permission of the second block as in the first block

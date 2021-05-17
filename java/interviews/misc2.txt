@@ -1,0 +1,37 @@
+Data Structures
+    Tree 
+    Given an HTML DOM find nearest node(nearest depth in any direction) which has ID attribute.
+    explain about BFS vs DFS
+
+Set
+    How would you perform Union and intersection of 2 arrays. Example: {1,3,4} and {4,7,1,5}
+    problem with added constraint : Both list are not order but output should maintain ascending order. E.g. {3,1,4,7,5} & {1,7,4,2} => intersection {1,4,7} &  union {1,2,3,4,5,7} 
+    explain types of sets and when to use each?
+
+    We have a legacy code of maintaining inventory items in hashset. Item is a POJO with details such as item_id, count, price etc. Given an item_id, we need to find its price. Do it in o(1) without additional data structure.
+    
+    Check whether 2 strings are anagrams of each other. Eg. Silent - Listen
+
+List
+    Assume a method:
+    delete(Object o)
+    {
+        //Iterate over a list and look for o
+        //If found, remove o from list
+    }
+    For this method, which data structure will yield better performance? ArrayList or LinkedList? Why?
+
+Map
+    Difference between keySet and entrySet. Where would you use each of them? Time complexity of insertion and search in different types of map.
+
+Core Java
+    General
+        A is parent of B. One utility class has 2 functions with same name and return type as void. One function is taking A type argument, another one is taking B type argument. If we call the method with A a =new B()
+        
+    String Pool
+        Difference b/w String s = “abc” and String s = new String(“abc”)
+    Inheritance / Polymorphism
+        Why doesn’t Java support multiple inheritance? 
+        give real world inheritance example
+        Object vs Primitives numberStream.flatMap(n -> n.stream())
+    explain access modifiers

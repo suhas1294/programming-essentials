@@ -1,0 +1,2 @@
+1,"testCaseName":"ACLTest","group":"All_Int","projectType":"GEN","vtName":"NEW_VT","status":"ACTIVE","canOrder":"Yes","expectedResult":"duplicateacltrue"
+2,"testCaseName":"DCLAddTest","group":"India_Int","projectType":"GEN_NEW","vtName":"OLD_VT","status":"ACTIVE","canOrder":"Yes","expectedResult":"invalidfeaturesacltrue"

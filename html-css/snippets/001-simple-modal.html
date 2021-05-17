@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modal demo</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<style>
+button{
+    background: #fff;
+    color: black;
+    padding: 1rem;
+    font-size: 1.3rem;
+    margin: 2%;
+    position: relative ;
+    left: 40%;
+}
+button:hover{
+    background: blue;
+    color: white;
+}
+pre{
+    font-family: sans-serif;
+    font-size: 1.5rem;
+    white-space:pre-wrap;
+}
+#modal{
+    border: 1px solid black;
+    box-shadow: 4px 8px 4px grey;
+    padding: 2%;
+    width: 60%;
+    text-justify: inter-word;
+    position: absolute;
+    left: 20%;
+    z-index: 100;
+    background-color: #fff;
+    font-size: 1.2rem;
+}
+.close{
+    display: none;
+}
+.overlay{
+    background: rgba(22, 22, 22, 0.8);
+}
+</style>
+
+<body class="">
+    <div id="modal" class="close">hello</div>
+    <pre>
+        Elit consequat occaecat velit ex cupidatat incididunt laboris ullamco esse magna minim ea voluptate esse. Ad cupidatat nulla occaecat aliqua. Ea labore minim ullamco elit ut non amet aliquip sit ex sint. Occaecat deserunt deserunt tempor aute ex excepteur quis. 
+        Ad cupidatat nulla occaecat aliqua. Ea labore minim ullamco elit ut non amet aliquip sit ex sint. Occaecat deserunt deserunt tempor aute ex excepteur quis. 
+
+        Consequat dolore mollit id labore id adipisicing irure magna sint eiusmod quis ut amet fugiat. Cupidatat veniam deserunt do in laborum eu. Officia incididunt veniam aliquip duis culpa dolore mollit fugiat pariatur esse eu. Veniam quis officia ex est incididunt est. Incididunt consectetur et laborum amet Lorem do ipsum magna minim dolor esse ullamco. Enim nulla adipisicing sit dolor adipisicing non proident et pariatur minim.
+    </pre>
+    <button onclick="showModal()" class="" id="modal-btn">Open Modal</button>
+</body>
+</html>
+
+<script>
+    let modalPopup = document.getElementById('modal');
+    let closeModalBtn = null;
+    let crossIcon = null;
+    const close = () => {
+        modalPopup.classList.toggle('close');
+    }
+    const showModal = () => {
+        let content = document.querySelector('pre').innerHTML;
+        let showPopupBtn = document.getElementById('modal-btn');
+        const modalCloseButton = `
+            <i style="display: block; float: right;" class="fa fa-times" aria-hidden="true"></i></br></br>
+            <h1 style="text-align:center">This is a modal popup</h1>
+            ${content}
+            </br>
+            <button onclick="close()" id="modal-btn-close">
+                Close
+            </button>
+        ` ;
+        modalPopup.innerHTML = modalCloseButton;
+        modalPopup.classList.toggle('close');
+        // we can initialise close button only after modal is loaded and then we can
+        // add event listner to it.
+        closeModalBtn = document.getElementById('modal-btn-close');
+        closeModalBtn.addEventListener('click', () => {
+            modalPopup.classList.toggle('close');
+            showPopupBtn.classList.toggle('close');
+            document.querySelector('body').classList.toggle('overlay');
+        });
+        
+        if(!modalPopup.classList.contains('close')){
+            let tempElement = document.getElementById('modal-btn');
+            document.querySelector('body').classList.toggle('overlay');
+            showPopupBtn.classList.toggle('close');
+        }
+        crossIcon = document.querySelector('.fa-times').addEventListener('mouseover', () => {
+            modalPopup.classList.toggle('close');
+            showPopupBtn.classList.toggle('close');
+            document.querySelector('body').classList.toggle('overlay');
+        });
+    }
+</script>

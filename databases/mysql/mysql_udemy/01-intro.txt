@@ -1,0 +1,66 @@
+'database' and 'database management system' both are different.
+
+database is a place where data is stored.
+
+'mysq, postgres, oracle etc' are 'dbms' which are use to talk to 'databases'
+
+SQL vs MySQL:
+    mysql, postgres, oracle, sqlite all uses 'SQL'(structured query language) which is a standard query language.
+    'SQL' is a standard used by above dbms.
+
+what makes dbms unique is the features they offer not the language(sql), bcoz language is anyway same. features like :
+    - how secure is one vs the other
+    - how fast is it
+    - how big it is to download
+    - use permission to work
+
+installation:
+    vi ~/.zshrc
+    export PATH=${PATH}:/usr/local/mysql/bin
+
+    mysql -u root -p
+    kbd&^%ruyf3qe (autogenerate password for first time)
+
+    alter user 'root'@'localhost' identified by '<newpassword>';
+
+inside a single database server(host) there can be multiple databases;
+
+single database server
+    dogwalker database
+        users (table)
+        payments (table)
+    soap shop database
+        users (table)
+        payments (table)
+    new website database
+
+
+database servers (host)
+    databases
+        tables
+            columns
+
+datatypes
+
+Numeric types:
+    int, whole number , upto 4,29,49,67,295
+    smallint
+    tinyint
+    mediumint
+    bigint
+    decimal
+    numeric
+    float
+    double
+    bit
+string
+    char
+    varchar (b/w 1 to 255 characters)
+
+
+// syntax to create table
+create table <table_name>
+(
+    column_name data_type,
+    column_name data_type
+);

@@ -1,0 +1,11 @@
+https://dev.to/damcosset/mongodb-normalization-vs-denormalization
+https://stackoverflow.com/questions/4563205/how-to-join-query-in-mongodb
+huge data problem: https://dba.stackexchange.com/questions/188667/best-database-and-table-design-for-billions-of-rows-of-data
+
+https://stackoverflow.com/questions/2634955/when-not-to-use-cassandra
+
+https://stackoverflow.com/questions/1476295/when-to-use-mongodb-or-other-document-oriented-database-systems
+
+https://stackoverflow.com/questions/8935512/should-i-be-using-mysql-or-mongodb
+
+https://softwareengineering.stackexchange.com/questions/54373/when-would-someone-use-mongodb-or-similar-over-a-relational-dbms

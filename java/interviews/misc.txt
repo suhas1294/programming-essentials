@@ -1,0 +1,84 @@
+Core Java
+    A a1 = new A(“1”);
+    A a2 = new A(“2”);
+    swap(a1,a2);
+    a1.value;
+    a2.value;
+
+
+Public void swap(A item1, A item2) {
+     A temp = item2;
+     item2 = item1;
+     item1 = temp;
+     item1.value;
+     item2.value;
+}
+
+// Polymorphism
+Class A {
+    public void printName() {
+        System.out.println("A");
+    }
+}
+
+Class B extends A {
+    public void printName() {
+        System.out.println("B");
+    }
+}
+
+Class C {
+
+    public void printName(A a) {
+        System.out.println("AA");
+    }
+
+    public void printName(B b) {
+        System.out.println("BB");
+    }
+
+    public static void main(String[] args) {
+        A a = new A();
+        a.printName(); //
+        a = new B();
+        a.printName(); //
+        C c = new C();
+        c.printName(a); //
+        c.printName(new B()); //
+    }
+}
+
+Map
+Class A {
+    String val;
+
+    @override
+    Boolean equals(Object obj) {
+        Return val.equals(obj.val)
+    }
+
+    @override
+    Int hashcode() {
+        Return val.hashcode();
+    }
+}
+
+main() {
+    Map < A, A > map = new HashMap < > ();
+    A a1 = new A(“1”);
+    map.put(a1, a1);
+    A1.val = “2”;
+    map.get(a1);
+}
+
+
+Programming questions
+    Given an array and a sum value as the inputs. Output any pair of numbers that sum up to the given number.Constraints: Array may have duplicate elements and it is unordered.
+    Example: A = [3,6,7,1,9,4], Sum = 8
+    (Question asked to gauge the understanding of the candidate about the usage of HashMap, HashSets)
+
+Algorithm
+    What is a Stack. What is the time complexity of push and pop?
+
+Follow Up
+    You are required to implement MaxStack which has a max() method in addition to the push(item) and pop features. The implementation should return the max element in O(1) time and the complexities of push and pop should be the same as the default Stack implementation.  
