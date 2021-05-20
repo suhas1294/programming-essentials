@@ -353,6 +353,52 @@ ordering of declaring in the html does not matter, ORDER OF DECLARATION IN CSS F
   when making the position of a element as 'absolute', 
 make sure its parent element has position as 'relative'
 
+* __Transitions and animations__\
+  `transition` : Do it between two points
+  `animations` : Do it between two or more points
+
+  ```css
+      transition-property: color/font-size/all;
+      transition-duration: 500ms; /* How long its going to last */
+      transition-timing-function: ease-in-out;
+      transition-delay: 1s; /* after how long should it start ?*/
+  ```
+
+* __css-animations__\
+  Css animations are css properties which we can apply to an element to animate that element
+  ```
+    // property names
+    animation-name: myCustomAnimation
+    animation-duration: 500ms
+    animation-timing-function: ease
+    animation-delay: 300ms
+    animation-iteration-count: infinite
+    animation-direction: reverse // on alternate iteration,animation will reverse
+    animation-fill-mode: forwards // if we stop animation, how do we want it to end up?, ex: forward means fill the screen with how animation ended.
+    animation-play-state: running
+  ```
+  how to use ?
+  ```css
+    body{
+      animation-name: myCustomAnimation
+    }
+    @keyframes myCustomAnimation{
+        0%{
+          color: red;
+        }
+        100%{
+          color: green;
+        }
+    }
+  ```
+* __transform__\
+  [mdn-reference](https://developer.mozilla.org/en-US/docs/Web/CSS/transform)\
+  transform property takes a transform function. It is independent of transitions and animations.
+  ```css
+    img{
+      transform:rotate(180deg)
+    }
+  ```
 ---
 
 __External Resources:__
