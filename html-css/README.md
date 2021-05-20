@@ -97,6 +97,79 @@
      - `div > p` {}		: all p tag IMMEDIATELY beneath div | Only direct p tag under specific div (not nested)
      - `div ~ p` {}		: all p tags that are sibilings following div | following siblings of a div
      - `div + p` {}		: all p tags that are an immediate sibiling following div | immediate siblings of a div
+    ```html
+        <style>
+        /* every p tag that is within div */
+        div p { border: 2px solid red;}
+        </style>
+
+        <div>
+            <p>hi</p> <!-- WORKS !!! -->
+            <div>
+                <p>hello</p> <!-- WORKS !!! -->
+            </div>
+            <p>there !?</p> <!-- WORKS !!! -->
+        </div>
+        <p>html</p> <!-- THIS DOES NOT WORK -->
+        <p>is</p> <!-- THIS DOES NOT WORK -->
+        <p>markup</p> <!-- THIS DOES NOT WORK -->
+
+        <!-- **************************************** -->
+
+        <style>
+            /* every IMMEDIATE p tag that is within div */
+            div > p { border: 2px solid red;}
+        </style>
+
+        <div>
+            <p>hi</p> <!-- WORKS !!! -->
+            <div>
+                <p>hello</p> <!-- THIS DOES NOT WORK -->
+            </div>
+            <p>there !?</p> <!-- WORKS !!! -->
+        </div>
+        <p>html</p> <!-- THIS DOES NOT WORK -->
+        <p>is</p> <!-- THIS DOES NOT WORK -->
+        <p>markup</p> <!-- THIS DOES NOT WORK -->
+
+        <!-- **************************************** -->
+
+        <style>
+            /* any p tag that is a sibiling following a div */
+            div ~ p { border: 2px solid red;}
+        </style>
+
+        <div>
+            <p>hi</p> <!-- THIS DOES NOT WORK -->
+            <div>
+                <p>hello</p> <!-- THIS DOES NOT WORK -->
+            </div>
+            <p>there !?</p> <!-- THIS DOES NOT WORK -->
+        </div>
+        <p>html</p> <!-- WORKS !!! -->
+        <p>is</p> <!-- WORKS !!! -->
+        <article>is</article> <!-- THIS DOES NOT WORK -->
+        <p>markup</p> <!-- WORKS !!! -->
+
+        <!-- **************************************** -->
+
+        <style>
+            /* any p tag that is that is an immediate sibling following a div */
+            div + p { border: 2px solid red;}
+        </style>
+
+        <div>
+            <p>hi</p> <!-- THIS DOES NOT WORK -->
+            <div>
+                <p>hello</p> <!-- THIS DOES NOT WORK -->
+            </div>
+            <p>there !?</p> <!-- THIS DOES NOT WORK -->
+        </div>
+        <p>html</p> <!-- WORKS !!! -->
+        <p>is</p> <!-- THIS DOES NOT WORK -->
+        <article>is</article> <!-- THIS DOES NOT WORK -->
+        <p>markup</p> <!-- THIS DOES NOT WORK -->
+    ```
   8. __compond selectors__
      - `ul#some-id li{...}`    // we have multiple selectors, any list item which is descendent of an unordered list that has the id 'some-id'
      - `ul #some-id` 		    // any element which has 'some-id' and which is a descendent of ul
