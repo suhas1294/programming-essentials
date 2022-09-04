@@ -1,5 +1,4 @@
 // we add '!' to say ts compiler that we are 100 % gurantee that right side expression will never yield null
-// Suhas@Udemy7
 const inputTxt = document.getElementById("test")!;
 
 // typecasting
