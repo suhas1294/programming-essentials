@@ -279,24 +279,26 @@ ordering of declaring in the html does not matter, ORDER OF DECLARATION IN CSS F
   2. Device independent pixels
   3. CSS pixel
 
-* Position property
-  offset properties: top, right, bottom and left.
-  position:
-      static (default)
-      relative : (relative to themselves or it's parent or the viewport respectively)
-          relative : 
-              the element's original space is left behind undisturbed.
-              the element is a free soul now. we can give offset properties like top, left, right, bottom
-              Basically the element is relative to its original position
-          absolute
-              the element's original space is NOT left behind. It is pulled out of regular 
-              DOM flow and other elements occupies this space as of this element is not there. 
-              ('this element' refers to that element which has absolute property)
-              the element is a free soul now. we can give offset properties like top, left, right, bottom
-              The element's offset properties are relative to its nearest parent which has 'positio: relative' property.
-          fixed :
-              same as absolute, but The element's offset properties are relative 
-              to the view port.
+* __Position property__ :
+
+  *(__offset properties__: top, right, bottom and left.)*
+
+  __position__:
+  1. static (default)
+  2. relative : (relative to themselves or it's parent or the viewport respectively)
+    * __relative__ : 
+        the element's original space is left behind undisturbed.
+        the element is a free soul now. we can give offset properties like top, left, right, bottom
+        Basically the element is relative to its original position
+    * __absolute__
+        the element's original space is NOT left behind. It is pulled out of regular 
+        DOM flow and other elements occupies this space as of this element is not there. 
+        ('this element' refers to that element which has absolute property)
+        the element is a free soul now. we can give offset properties like top, left, right, bottom
+        The element's offset properties are relative to its nearest parent which has 'positio: relative' property.
+    * __fixed__ :
+        same as absolute, but The element's offset properties are relative 
+        to the view port.
 
 
 * How to center elements ?
