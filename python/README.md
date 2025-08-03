@@ -1812,5 +1812,102 @@ for x in outer():
 # Start
 # A
 # B
+
+***
+
+#### Working with python projects : 
+```sh
+# default python version
+python --version #2.7.18
+python3 --version #3.9.6
+
+# install pyenv 
+brew install pyenv
+pyenv install 3.13.0 # install python 3.13.0
+
+# workspace setup
+cd workspace
+mkdir test-python
+cd test-python
+pyenv local 3.13.0 # use 3.13.0 for this project(folder)
+python -m venv .venv # create virtual environment - this will create a .venv folder and use 3.13.0
+source .venv/bin/activate # activate the virtual environment
+# inside this folder, even pip uses the one compatible with python 3.13.0
+```
+
+__Note__ : 
+1. Every Python installation (whether system, pyenv-managed, or within a venv) comes with its own pip (or pip3) executable.
+2. When you run pip install <package>, it installs the package into the site-packages directory associated with the Python interpreter that the currently active pip command belongs to.
+3. If you have multiple Python versions installed, you can specify which pip to use by calling it directly, e.g., python3.13 -m pip install <package>.
+
+***
+####  DEPENDENCY MANAGEMENT
+
+```
+# requirements.txt
+requests==2.31.0
+numpy>=1.26.0,<2.0.0
+pandas~=2.2.0
+scikit-learn
+
+# install packages
+pip install -r requirements.txt
+```
+
+***
+
+Modern tools or Project Managers: `Poetry`, `PDM`, `Rye`
+They use a single `pyproject.toml` (similar to `package.json` or `pom.xml`)
+
+example usage : 
+```toml
+#pyproject.toml
+[tool.poetry]
+name = "my_awesome_project"
+version = "0.1.0"
+description = "A great project"
+authors = ["Your Name <you@example.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+requests = "^2.31"
+numpy = "^1.26"
+pandas = { extras = ["excel"], version = "^2.2.0" } # example with extras
+```
+
+__Poetry__: `poetry add requests`, `poetry install,` `poetry run python your_script.py`
+__PDM__: `pdm add requests`, `pdm install,` `pdm run python your_script.py`
+__Rye__: `rye add requests`, `rye install,` `rye run python your_script.py`
+
+***
+#### Using `'uv'` for dependency management
+
+uv does jobs of following : 
+1. `pip`: For installing packages.
+2. `pip-tools` (or pipdeptree): For resolving dependencies and creating lock files.
+3. `venv`: For creating isolated environments.
+
+Installation : 
+```sh
+curl -LsSf https://astral.sh/uv/install.sh | sh
+```
+
+Usage : 
+```sh
+uv venv #Creating a virtual environment:
+source .venv/bin/activate #Activating the virtual environment
+uv pip install <package_name>
+
+# installing from requirements.txt
+uv pip install -r requirements.txt
+# to generate a lock file
+uv pip compile requirements.in -o requirements.lock 
+
+# You'd typically put your direct dependencies (e.g., requests, numpy) in requirements.in and uv will resolve all their sub-dependencies and write them to requirements.lock. Then, to install:
+uv pip install -r requirements.lock
+
+# Syncing an environment (installing and removing packages to match a lock file):
+uv pip sync requirements.lock
+```
 # End
 ```
