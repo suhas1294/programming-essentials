@@ -1909,5 +1909,3 @@ uv pip install -r requirements.lock
 # Syncing an environment (installing and removing packages to match a lock file):
 uv pip sync requirements.lock
 ```
-# End
-```
